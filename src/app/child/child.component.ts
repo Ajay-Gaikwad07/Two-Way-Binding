@@ -1,24 +1,19 @@
-import { Component, EventEmitter ,Output} from '@angular/core';
+import { Component, Input, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child',
   templateUrl: './child.component.html',
   styleUrls: ['./child.component.css']
 })
-export class ChildComponent 
+export class ChildComponent  
 {
-  public obj:any=""
+@Input()public box="           nbm"
 
-  public Acceptdata(value:any)
-  {
-    this.obj="From child com.. "+value
-  }
+@Output()public ab = new EventEmitter()
 
-@Output()public xo=new EventEmitter()
-
-public message()
+public sendmessage()
 {
-  this.xo.emit(this.obj)
+  this.ab.emit("Hello From Child Component ")
 }
 
 }
